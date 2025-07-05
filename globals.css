@@ -1,0 +1,382 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+}
+
+/* Scrolling animation for the role text */
+.scrolling-text {
+  animation: scroll-left 15s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Slick Animations */
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes title-entrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(50px);
+    filter: blur(10px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05) translateY(-10px);
+    filter: blur(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0px);
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(100px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1) translateY(-20px);
+  }
+  70% {
+    transform: scale(0.9) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.3), 0 0 60px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 255, 255, 0.5), 0 0 90px rgba(255, 255, 255, 0.3);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes click-flash {
+  0% {
+    background: transparent;
+    box-shadow: none;
+  }
+  50% {
+    background: rgba(0, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  }
+  100% {
+    background: transparent;
+    box-shadow: none;
+  }
+}
+
+@keyframes subtle-zoom {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.animate-fade-in-down {
+  animation: fade-in-down 1s ease-out;
+}
+
+.animate-fade-in {
+  animation: fade-in 1.2s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.8s ease-out 0.3s both;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.8s ease-out 0.5s both;
+}
+
+.animate-title-entrance {
+  animation: title-entrance 1.5s ease-out;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 1s ease-out 0.8s both;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s ease-in-out infinite;
+}
+
+.animate-click-flash {
+  animation: click-flash 0.3s ease-out;
+}
+
+.animate-subtle-zoom {
+  animation: subtle-zoom 20s ease-in-out infinite;
+}
+
+.hover\:glow-cyan:hover {
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.hover\:glow-white:hover {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Hacking effect for development skills buttons */
+.hack-button {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.hack-button:hover {
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+}
+
+.hack-text {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hack-button:hover .hack-text {
+  animation: hack-glitch 0.6s ease-in-out;
+}
+
+@keyframes hack-glitch {
+  0%,
+  100% {
+    transform: translate(0);
+    filter: hue-rotate(0deg);
+  }
+  10% {
+    transform: translate(-2px, 2px);
+    filter: hue-rotate(90deg);
+  }
+  20% {
+    transform: translate(-2px, -2px);
+    filter: hue-rotate(180deg);
+  }
+  30% {
+    transform: translate(2px, 2px);
+    filter: hue-rotate(270deg);
+  }
+  40% {
+    transform: translate(2px, -2px);
+    filter: hue-rotate(360deg);
+  }
+  50% {
+    transform: translate(-2px, 2px);
+    filter: hue-rotate(90deg);
+  }
+  60% {
+    transform: translate(-2px, -2px);
+    filter: hue-rotate(180deg);
+  }
+  70% {
+    transform: translate(2px, 2px);
+    filter: hue-rotate(270deg);
+  }
+  80% {
+    transform: translate(2px, -2px);
+    filter: hue-rotate(360deg);
+  }
+  90% {
+    transform: translate(-2px, 2px);
+    filter: hue-rotate(90deg);
+  }
+}
+
+.hack-button:hover .hack-text::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 255, 255, 0.1);
+  color: #00ffff;
+  animation: hack-noise 0.6s ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes hack-noise {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translate(0);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(-1px, 1px);
+  }
+  20% {
+    opacity: 0;
+    transform: translate(1px, -1px);
+  }
+  30% {
+    opacity: 1;
+    transform: translate(-1px, -1px);
+  }
+  40% {
+    opacity: 0;
+    transform: translate(1px, 1px);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-1px, 1px);
+  }
+  60% {
+    opacity: 0;
+    transform: translate(1px, -1px);
+  }
+  70% {
+    opacity: 1;
+    transform: translate(-1px, -1px);
+  }
+  80% {
+    opacity: 0;
+    transform: translate(1px, 1px);
+  }
+  90% {
+    opacity: 1;
+    transform: translate(-1px, 1px);
+  }
+}
+
+.hack-button:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+  animation: hack-scan 0.6s ease-in-out;
+}
+
+@keyframes hack-scan {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
